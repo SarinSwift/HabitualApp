@@ -26,8 +26,13 @@ class AddHabitViewController: UIViewController {
     }
 
 
-    @IBAction func pickPhotoButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func pickPhotoButtonTapped(_ sender: Any) {
+        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first else {
+            return
+        }
+        let confirmHabitVC = ConfirmHabitViewController.instantiate()
+        confirmHabitVC.habitImage = habitImages[selectedIndexPath.row]
+        navigationController?.pushViewController(confirmHabitVC, animated: true)
     }
     
     func setupNavBar() {
@@ -41,6 +46,7 @@ class AddHabitViewController: UIViewController {
     }
 
 }
+
 
 extension AddHabitViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
