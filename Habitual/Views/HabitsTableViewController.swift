@@ -24,6 +24,25 @@ class HabitsTableViewController: UITableViewController {
         
         setupNavBar()
         tableView.register(HabitTableViewCell.nib, forCellReuseIdentifier: HabitTableViewCell.identifier)
+        
+        let longPressRecongnizer = UILongPressGestureRecognizer(target: self, action: #selector(HabitsTableViewController.longPress(longPressGestureRecognizer:)))
+        self.view.addGestureRecognizer(longPressRecongnizer)
+    }
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
+            let touchPoint = longPressGestureRecognizer.location(in: self.view)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                // same functionality as the 'commit editingStyle'
+                let habitToDelete = persistance.habits[indexPath.row]
+                let habitIndexToDelete = indexPath.row
+                let deleteAlert = UIAlertController(habitTitle: habitToDelete.title) {
+                    self.persistance.delete(habitIndexToDelete)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                self.present(deleteAlert, animated: true)
+            }
+        }
     }
     
     // whenever we load this view controller, we want to load the habits
@@ -42,9 +61,9 @@ class HabitsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: HabitTableViewCell.identifier, for: indexPath) as! HabitTableViewCell
         let habit = persistance.habits[indexPath.row]
         cell.configure(habit)
+        
         return cell
     }
-    
     
 
 }
