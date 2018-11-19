@@ -15,6 +15,7 @@
                 <outlet property="imageViewIcon" destination="joS-u5-lgp" id="jNw-Oq-NyW"/>
                 <outlet property="labelBestStreak" destination="q9h-kT-3rT" id="ujf-Ue-MG3"/>
                 <outlet property="labelCurrentStreaks" destination="WoC-6v-Mbn" id="UJb-4b-ezn"/>
+                <outlet property="labelLastCompletionDate" destination="jCN-oF-oR7" id="n46-Ph-FZt"/>
                 <outlet property="labelStartingDate" destination="EYZ-h6-ysK" id="3g7-gL-mTF"/>
                 <outlet property="labelTotalCompletions" destination="L9K-Ry-V28" id="hdc-10-OnQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -51,8 +52,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="MUS-QT-bOT">
-                    <rect key="frame" x="20.5" y="463.5" width="334.5" height="123.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="MUS-QT-bOT">
+                    <rect key="frame" x="20.5" y="463.5" width="334.5" height="148"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-Ww-idO">
                             <rect key="frame" x="0.0" y="0.0" width="334.5" height="20.5"/>
@@ -72,7 +73,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="192" translatesAutoresizingMaskIntoConstraints="NO" id="6Jl-io-wFG">
-                            <rect key="frame" x="0.0" y="51.5" width="334.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="42.5" width="334.5" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Best streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3n-LK-hFf">
                                     <rect key="frame" x="0.0" y="0.0" width="134.5" height="20.5"/>
@@ -89,7 +90,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="86" translatesAutoresizingMaskIntoConstraints="NO" id="V35-bn-v16">
-                            <rect key="frame" x="0.0" y="103" width="334.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="85" width="334.5" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Starting date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTp-aD-Sos">
                                     <rect key="frame" x="0.0" y="0.0" width="149" height="20.5"/>
@@ -98,6 +99,23 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 12, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYZ-h6-ysK">
+                                    <rect key="frame" x="235" y="0.0" width="99.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Xx2-ei-B61">
+                            <rect key="frame" x="0.0" y="127.5" width="334.5" height="20.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Last completed date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63V-ad-DjZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="217" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 12, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCN-oF-oR7">
                                     <rect key="frame" x="235" y="0.0" width="99.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>

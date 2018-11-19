@@ -21,10 +21,10 @@ class HabitDetailedViewController: UIViewController {
     @IBOutlet weak var labelTotalCompletions: UILabel!
     @IBOutlet weak var labelBestStreak: UILabel!
     @IBOutlet weak var labelStartingDate: UILabel!
+    @IBOutlet weak var labelLastCompletionDate: UILabel!
     @IBOutlet weak var buttonAction: UIButton!
     
     @IBAction func pressActionButton(_ sender: UIButton) {
-        
         // when a user presses the complete button, we mark the habit as completed in PersistenceLayer
         habit = persistance.markHabitAsCompleted(habitIndex)
         updateUI()
@@ -45,13 +45,14 @@ class HabitDetailedViewController: UIViewController {
 
     func updateUI() {
         
-        // changing the text values to match the habits current updated value
-//        title = habit.title
+//      changing the text values to match the habits current updated value
+        title = habit.title
         imageViewIcon.image = habit.selectedImage.image
         labelCurrentStreaks.text = "\(habit.currentStreak) days"
         labelTotalCompletions.text = String(habit.numberOfCompletions)
         labelBestStreak.text = String(habit.bestStreak)
         labelStartingDate.text = habit.dateCreated.stringValue
+        labelLastCompletionDate.text = habit.lastCompletionDate?.stringValue
         
         if habit.hasCompletedForToday {
             buttonAction.setTitle("Completed for Today!", for: .normal)

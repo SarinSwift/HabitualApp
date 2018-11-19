@@ -11,13 +11,6 @@ import UIKit
 class HabitsTableViewController: UITableViewController {
     
     private var persistance = PersistenceLayer()
-    
-    var habits: [Habit] = [
-        Habit(title: "Go to bed before 10pm", image: Habit.Images.book),
-        Habit(title: "Drink 8 glasses of water", image: Habit.Images.book),
-        Habit(title: "Commit today", image: Habit.Images.book),
-        Habit(title: "Stand up every hour", image: Habit.Images.book)
-    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +96,19 @@ extension HabitsTableViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         persistance.swapHabits(habitIndex: sourceIndexPath.row, destinationIndex: destinationIndexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(persistance.habits[indexPath.row].title)
+        
+        let habitDetailedVC = HabitDetailedViewController.instantiate()
+        habitDetailedVC.view.layoutIfNeeded()
+        habitDetailedVC.habit = persistance.habits[indexPath.row]
+        habitDetailedVC.habitIndex = indexPath.row
+        habitDetailedVC.labelBestStreak.text = "hello"
+        
+        navigationController?.pushViewController(habitDetailedVC, animated: true)
+        
     }
 }
 
