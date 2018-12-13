@@ -99,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				0455C662219BDFA200264F9C /* HabitsTableViewController.swift */,
-				0455C663219BDFA200264F9C /* HabitsTableViewController.xib */,
 				047C5FEF219CACA000E517B3 /* HabitTableViewCell.swift */,
+				0455C663219BDFA200264F9C /* HabitsTableViewController.xib */,
 				047C5FF0219CACA000E517B3 /* HabitTableViewCell.xib */,
 				047C5FF5219DCF3600E517B3 /* AddHabitViewController.swift */,
 				047C5FF6219DCF3600E517B3 /* AddHabitViewController.xib */,
